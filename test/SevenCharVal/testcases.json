@@ -1,0 +1,107 @@
+[
+  {
+    "title": "TC01: All Uppercase Letters",
+    "input": "ABCDEFG",
+    "expected": "Valid Value"
+  },
+  {
+    "title": "TC02: All Lowercase Letters",
+    "input": "abcdefg",
+    "expected": "Valid Value"
+  },
+  {
+    "title": "TC03: All Numbers",
+    "input": "0123456",
+    "expected": "Valid Value"
+  },
+  {
+    "title": "TC04: All Asterisks",
+    "input": "*******",
+    "expected": "Valid Value"
+  },
+  {
+    "title": "TC05: Mixed Valid Characters",
+    "input": "aB3*X9z",
+    "expected": "Valid Value"
+  },
+  {
+    "title": "TC06: Empty Input (Length 0)",
+    "input": "",
+    "expected": "Invalid Value"
+  },
+  {
+    "title": "TC07: Minimum Length - 1 (Length 6)",
+    "input": "aB3*X9",
+    "expected": "Invalid Value"
+  },
+  {
+    "title": "TC08: Maximum Length + 1 (Length 8)",
+    "input": "aB3*X9zA",
+    "expected": "Invalid Value (or the UI prevents typing the 8th character via a maxlength attribute)."
+  },
+  {
+    "title": "TC09: Single Character (Length 1)",
+    "input": "A",
+    "expected": "Invalid Value"
+  },
+  {
+    "title": "TC10: Extremely Long Input",
+    "input": "AAAAAAAAAAaaaaaaaaaaAAAAAAAAAAAaaaaaaaaaaaAAAAAAAAAAAA",
+    "expected": "Invalid Value (or truncated to 7 characters and validated)."
+  },
+  {
+    "title": "TC11: Contains Spaces",
+    "input": "abc def",
+    "expected": "Invalid Value"
+  },
+  {
+    "title": "TC12: Leading/Trailing Spaces",
+    "input": " aB3*X ",
+    "expected": "Invalid Value"
+  },
+  {
+    "title": "TC13: Disallowed Special Characters",
+    "input": "aB3@X9z",
+    "expected": "Invalid Value"
+  },
+  {
+    "title": "TC14: Punctuation Marks",
+    "input": "aB3.X9z",
+    "expected": "Invalid Value"
+  },
+  {
+    "title": "TC15: Math/Logic Symbols",
+    "input": "aB3+X9z",
+    "expected": "Invalid Value"
+  },
+  {
+    "title": "TC16: Accented/Non-Latin Characters",
+    "input": "aB3*X9é",
+    "expected": "Invalid Value"
+  },
+  {
+    "title": "TC17: Emojis",
+    "input": "aB3*X9😊",
+    "expected": "Invalid Value"
+  },
+  {
+    "title": "TC18: Invisible Characters",
+    "input": "abc\\tdef",
+    "expected": "Invalid Value"
+  },
+    {
+    "title": "TC28: Cross-Site Scripting (XSS) Attempt",
+    "input": "<script",
+    "expected": "Invalid Value"
+  },
+  {
+    "title": "TC29: SQL Injection Attempt",
+    "input": "' OR 1=",
+    "expected": "Invalid Value"
+  },
+  {
+    "title": "TC30: Null Byte Injection",
+    "input": "abc%00def",
+    "expected": "Invalid Value"
+  }
+]

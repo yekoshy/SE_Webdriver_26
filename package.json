@@ -1,0 +1,26 @@
+{
+  "name": "se_webdriver_26",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test:all": "mocha --recursive --reporter mochawesome --reporter-options reportDir=reports,reportFilename=full_suite_result,quiet=true",
+    "test:seven": "mocha test/SevenCharVal --reporter mochawesome --reporter-options reportDir=reports,reportFilename=SevenCharVal_result,quiet=true",
+    "test:folder": "cross-env-shell mocha test/$FOLDER --reporter mochawesome --reporter-options reportDir=reports,reportFilename=${FOLDER}_result,quiet=true"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "chromedriver": "^146.0.1",
+    "selenium-webdriver": "^4.41.0"
+  },
+  "devDependencies": {
+    "chai": "^6.2.2",
+    "cross-env": "^10.1.0",
+    "mocha": "^11.7.5",
+    "mochawesome": "^7.1.4",
+    "mochawesome-report-generator": "^6.3.2"
+  }
+}
