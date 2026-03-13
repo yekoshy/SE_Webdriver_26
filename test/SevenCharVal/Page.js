@@ -19,7 +19,17 @@ class SevenCharValPage {
     async enterCharacters(chars) {
         const input = await this.driver.findElement(By.xpath(this.charactersInput));
         await input.clear();
-        await input.sendKeys(chars);
+        
+        // Check if the input contains characters outside the Basic Multilingual Plane (BMP)
+        const hasNonBMP = [...chars].some(char => char.codePointAt(0) > 0xFFFF);
+        
+        if (hasNonBMP) {
+            // Use JavaScript to set the value directly for non-BMP characters
+            await this.driver.executeScript("arguments[0].value = arguments[1];", input, chars);
+        } else {
+            // Use sendKeys for BMP characters
+            await input.sendKeys(chars);
+        }
     }
 
     async clickCheckInput() {
