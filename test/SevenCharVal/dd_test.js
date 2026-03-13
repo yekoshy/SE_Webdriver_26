@@ -10,18 +10,20 @@ describe("7 Char Validator Data Driven Tests", function() {
 
   before(async function(){
     // Setup before all tests if needed
+    await page.open();
   });
 
   beforeEach(async function(){
-    await page.open();
+    //await page.open();
   });
 
   after(async function(){
     // Teardown after all tests if needed
+    await page.close();
   });
 
   afterEach(async function(){
-    await page.close();
+    //await page.close();
   });
 
   // Iterate through the JSON array to create dynamic test cases
