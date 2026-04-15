@@ -11,6 +11,15 @@ return value) and returns the desired proxy URL (also a string) based on
 standard proxy environment variables. If no proxy is set, an empty string is
 returned.
 
+If your application makes important (security) decisions based on the URL, be
+consistent in the mechanism to parse and validate URLs, as differences in URL
+parsing behavior can affect the outcome of proxy resolution.
+Strings are parsed with the standard `URL` API, as of `proxy-from-env@2.0.0`.
+Older versions relied on the (now deprecated) `url.parse` method instead.
+
+Invalid values in environment variables are not handled by the library
+([#41](https://github.com/Rob--W/proxy-from-env/issues/41)).
+
 It is your responsibility to actually proxy the request using the given URL.
 
 Installation:
@@ -90,8 +99,8 @@ currently behind `NODE_USE_ENV_PROXY=1` or `--use-env-proxy`. For details, see:
 
 
 ## Environment variables
-The environment variables can be specified in lowercase or uppercase, with the
-lowercase name having precedence over the uppercase variant. A variable that is
+The environment variables can be specified in all lowercase or all uppercase,
+with lowercase taking precedence over the uppercase variant. A variable that is
 not set has the same meaning as a variable that is set but has no value.
 
 ### NO\_PROXY
